@@ -1,0 +1,119 @@
+@use '../util/' as *;
+
+.footer {
+  background-color: var(--dark-blue);
+  padding: rem(48) 0;
+
+  &__inner {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    gap: rem(48);
+  }
+
+  &__form {
+    display: flex;
+    align-items: flex-start;
+    gap: rem(8);
+    width: 100%;
+  }
+
+  &__email-wrapper {
+    flex: 1;
+  }
+
+  &__email {
+    font: inherit;
+    border-radius: 5rem;
+    border: none;
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+
+  &__form--invalid &__email {
+    border: 1px solid var(--red);
+    color: var(--red);
+  }
+
+  &__form-error {
+    font-size: rem(14);
+    display: none;
+    color: var(--red);
+    padding: rem(8) rem(28);
+  }
+
+  &__form--invalid &__form-error {
+    display: block;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  &__nav-list-item {
+    margin-bottom: rem(4);
+  }
+
+  &__nav-link {
+    display: inline-block;
+    color: var(--light-gray);
+    padding: rem(4);
+  }
+
+  &__socials-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(48);
+  }
+
+  &__socials {
+    display: flex;
+    gap: rem(16);
+  }
+
+  &__copyright {
+    color: var(--grayish-blue);
+  }
+
+  @include breakpoint(large) {
+    &__inner {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    &__form {
+      grid-column: 3 / 4;
+    }
+
+    &__nav {
+      grid-column: 2 / 3;
+      grid-row: 1 / 4;
+    }
+
+    &__nav-link:hover {
+      color: var(--red);
+    }
+
+    &__socials-wrapper {
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+    }
+
+    &__social:hover &__social-icon {
+      fill: var(--red);
+    }
+
+    &__copyright {
+      grid-column: 3 / 4;
+      grid-row: 3 / 4;
+      justify-self: end;
+    }
+  }
+}

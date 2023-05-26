@@ -1,0 +1,12 @@
+@use '../util' as *;
+
+.header {
+  position: relative;
+  padding: rem(32) 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
